@@ -1,0 +1,31 @@
+{
+  "name": "@osx11/simple-event",
+  "version": "1.0.0",
+  "description": "Simple custom events",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osx11/react-simple-dnd-table.git"
+  },
+  "author": "osx11 <osx11@ya.ru>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "rollup": "^4.6.1",
+    "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {}
+}
