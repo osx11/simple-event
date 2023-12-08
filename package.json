@@ -4,7 +4,7 @@
   "description": "Simple custom events",
   "repository": {
     "type": "git",
-    "url": "https://github.com/osx11/react-simple-dnd-table.git"
+    "url": "https://github.com/osx11/simple-event.git"
   },
   "author": "osx11 <osx11@ya.ru>",
   "license": "MIT",
