@@ -1,4 +1,4 @@
-# TypeScriptSimpleEvent
+# TypeScript SimpleEvent
 
 ## Example of usage
 

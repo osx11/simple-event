@@ -1,6 +1,6 @@
 {
   "name": "@osx11/simple-event",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple custom events",
   "repository": {
     "type": "git",
