@@ -7,51 +7,25 @@
 
 import {SimpleEvent} from '@osx11/simple-event';
 
-export class SomeService {
-  constructor() {
-    this.startLoop();
-  }
+let i = 0;
+const someEvent = new SimpleEvent<number>();
 
-  private readonly _onSomeEvent = new SimpleEvent<number>();
-
-  get onSomeEvent() {
-    return this._onSomeEvent.asSubscribeOnlyEvent();
-  }
-
-  private startLoop() {
-    let i = 1;
-
-    setInterval(() => {
-      // emit value for event every second
-      this._onSomeEvent.emit(i);
-      i++;
-    }, 1000)
-  }
+const callback = (v: number) => {
+  console.log(v);
 }
 
-// ------------
+someEvent.addEventListener(callback);
 
-// AnotherService.ts
+setInterval(() => someEvent.emit(++i), 1000);
+```
 
-import { SimpleEventSubscription } from '@osx11/simple-event';
-import {SomeService} from './SomeService.ts';
+- If you need an event type with `addEventListener` and `removeEventListener` methods only (to prevent unintended emit),
+you can use `someEvent.asSubscribeOnlyEvent()`
 
-export class AnotherService {
-  constructor() {
-    this._listener = this.someService.onSomeEvent.addEventListener(v => {
-      // this will log N every second (when event is emitted)
-      console.log('New value', v)
-    });
-  }
-  
-  private _listener: SimpleEventSubscription | undefined;
-  
-  private readonly someService = new SomeService();
-  
-  // dispose should be called where unsubscribe is needed.
-  // e.g. in return callback of useEffect in React
-  dispose() {
-    this._listener?.unsubscribe();
-  }
-}
+- To unsubscribe, use `someEvent.removeEventListener(callback)` modify the code as following:
+```typescript
+const subscription = someEvent.addEventListener(v => console.log(v));
+
+// run where needed
+subscription.unsubscribe()
 ```
