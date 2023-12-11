@@ -22,7 +22,7 @@ setInterval(() => someEvent.emit(++i), 1000);
 - If you need an event type with `addEventListener` and `removeEventListener` methods only (to prevent unintended emit),
 you can use `someEvent.asSubscribeOnlyEvent()`
 
-- To unsubscribe, use `someEvent.removeEventListener(callback)` modify the code as following:
+- To unsubscribe, use `someEvent.removeEventListener(callback)` or modify the code as following:
 ```typescript
 const subscription = someEvent.addEventListener(v => console.log(v));
 
